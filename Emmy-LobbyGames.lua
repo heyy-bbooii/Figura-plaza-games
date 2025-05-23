@@ -9,10 +9,12 @@ avatar:store("lobbyGames", true)
 -- Try tagging the target
 function tryTag()
     target = player:getTargetedEntity(4)
-    if target and target:getName() ~= player:getName() and tagData and tagData["tagged"] == player:getName() and target:getVariable("lobbyGames") == true then
-        pings.taggedSomeone(target:getName())
-    elseif target and tagData and tagData["tagged"] == player:getName() and ((target:getVariable("lobbyGames") == false or not target:getVariable("lobbyGames")))then
-        host:setActionbar(target:getName().. "Isnt Playing Tag TwT")
+    if target and target:getName() ~= player:getName() and tagData and tagData["tagged"] == player:getName() then
+        if target:getVariable("lobbyGames") == true then
+            pings.taggedSomeone(target:getName())
+        elseif target:getVariable("lobbyGames") == false or not target:getVariable("lobbyGames") then
+            host:setActionbar(target:getName().. "Isnt Playing Tag TwT")
+        end
     end
 end
 
