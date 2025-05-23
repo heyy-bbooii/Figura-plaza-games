@@ -8,7 +8,7 @@ avatar:store("lobbyGames", true)
 -- === Tagging Functions === --
 -- Try tagging the target
 function tryTag()
-    target = player:getTargetedEntity(4)
+    target = player:getTargetedEntity(3.5)
     if target and target:getName() ~= player:getName() and tagData and tagData["tagged"] == player:getName() then
         if target:getVariable("lobbyGames") == true then
             pings.taggedSomeone(target:getName())
